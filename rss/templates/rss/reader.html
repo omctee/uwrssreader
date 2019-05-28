@@ -1,0 +1,54 @@
+{% extends 'rss/base.html' %}
+
+<!-- {% load thumbnail %} -->
+
+{% block body %}
+
+{% if feed.items %}
+
+<!-- {% for item in feed.items %}
+<div>
+   <p>
+       {{ item.published }}
+       <a href="{{ item.link }}">{{ item.title }}</a> 
+       {{ item.author }}
+   </p>
+</div>
+{% endfor %} -->
+
+<div class="container">
+    <div class="row">
+        {% for item in feed.items %}
+        <div class="col-sm">
+            <div class="card text-white bg-info mb-3" style="width: 18rem;">
+
+                {% for s in item.media_thumbnail %}
+                  <img src="{{ s.url }}" width="306" height="201" />
+                {% endfor %}
+
+                <!-- <img src="https://undeniablewoman.com/wp-content/uploads/2016/11/NEW-OFFICIAL-with-logo-768x387.jpg" width="280" height="280"  /> -->
+                <!--
+                {% thumbnail item.media_thumbnail "150x150" crop="center" as im %}
+                    <img class="card-img-top" src="{{ item.media_thumbnail }}" width="280" height="280" />                                        
+                {% endthumbnail %}
+                -->
+              
+                <!-- <img class="card-img-top" src="{{ item.media_thumbnail }}" alt={{ image.url }}>  -->
+                <div class="card-body">
+                    <h5 class="card-title">{{ item.title }}</h5>
+                    <p class="card-text">{{ item.description }}</p>
+                    <a href="{{ item.link }}" class="btn btn-secondary"> Read More...</a>
+                </div>
+            
+            </div>
+            <br />
+        </div>
+        {% endfor %}
+    </div>
+</div>
+
+
+
+{% endif %}
+
+{% endblock %}
