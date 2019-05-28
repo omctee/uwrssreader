@@ -1,7 +1,5 @@
 {% extends 'rss/base.html' %}
 
-<!-- {% load thumbnail %} -->
-
 {% block body %}
 
 {% if feed.items %}
@@ -26,13 +24,7 @@
                   <img src="{{ s.url }}" width="306" height="201" />
                 {% endfor %}
 
-                <!-- <img src="https://undeniablewoman.com/wp-content/uploads/2016/11/NEW-OFFICIAL-with-logo-768x387.jpg" width="280" height="280"  /> -->
-                <!--
-                {% thumbnail item.media_thumbnail "150x150" crop="center" as im %}
-                    <img class="card-img-top" src="{{ item.media_thumbnail }}" width="280" height="280" />                                        
-                {% endthumbnail %}
-                -->
-              
+                       
                 <!-- <img class="card-img-top" src="{{ item.media_thumbnail }}" alt={{ image.url }}>  -->
                 <div class="card-body">
                     <h5 class="card-title">{{ item.title }}</h5>
